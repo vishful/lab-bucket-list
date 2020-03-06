@@ -64,7 +64,8 @@ And finally, create a pull request so your ProGrad Mentor (PM) can review your w
 1. ***Create a class called ListOperations inside service package with the following methods.***
    - ***public List<TouristPlace> add(TouristPlace places)***
    - ***public List<TouristPlace> remove(TouristPlace places)***
-   - ***public Object ascending(List<TouristPlace> places)***
+   - ***public Object sortByDestination(List<TouristPlace> places)***
+   - ***public Object sortByRank(List<TouristPlace> places)***
    - ***public Object reset(List<TouristPlace> places)***
 2. ***Use lamda operations to sort.***
 3. ***The return type of all the methods are list.***
@@ -72,17 +73,23 @@ And finally, create a pull request so your ProGrad Mentor (PM) can review your w
 
 ## Progression - 3
 1. ***Create a class called MapOperations inside service package with the following methods.***
+   - ***public List<TouristPlace> add(TouristPlace places)***
    - ***public Map<TouristPlace> sortRandomly(TouristPlace places)***
-   - ***public Map<TouristPlace> sortInEntryOrder(TouristPlace places)***
-   - ***public Map<TouristPlace> sortAlphabetically(TouristPlace places)***
+   - ***public Map<TouristPlace> sortInEntryOrder(HashMap<TouristPlace> places)***
+   - ***public Map<TouristPlace> sortAlphabetically(HashMap<TouristPlace> places)***
+   - ***public Object reset(HashMap<TouristPlace> places)***
+   - ***public HashMap<TouristPlace> remove(TouristPlace places)***
 2. ***Use lamda operations to sort.***
 3. ***The return type of all the methods are map.***
  
  
  ## Progression - 4
 1. ***Create a class called SetOperations inside service package with the following methods.***
-   - ***public Set<TouristPlace> insert(TouristPlace places)***
-   - ***public Set<TouristPlace> delete(TouristPlace places)***
+   - ***public HashSet<TouristPlace> add(TouristPlace places)***
+   - ***public HashSet<TouristPlace> remove(TouristPlace places)***
+   - ***public Object sortByDestination(HashSet<TouristPlace> places)***
+   - ***public Object sortByRank(HashSet<TouristPlace> places)***
+   - ***public Object reset(HashSet<TouristPlace> places)***
 2. ***Use lamda operations to sort.***
 3. ***The return type of all the methods are set.***
 
