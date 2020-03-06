@@ -4,7 +4,7 @@
 
 ## A Quick Introduction
 
-
+Time to make your travel bucket list. Go ahead & follow the progressions to finish this up.
 
 ## What should you do
 ```
