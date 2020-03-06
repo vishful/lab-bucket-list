@@ -23,14 +23,8 @@ import service.ListOperations;
 public class MapServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-
-	Map<String,TouristPlace> hash = new HashMap<String,TouristPlace>();
-	Map<String,TouristPlace> linkedhash = new LinkedHashMap<String,TouristPlace>();
-	Map<String,TouristPlace> tree = new TreeMap<String,TouristPlace>();
-	Map<String,TouristPlace> hash1 = new HashMap<String,TouristPlace>();
-	Map<String,TouristPlace> linkedhash1 = new LinkedHashMap<String,TouristPlace>();
-	Map<String,TouristPlace> tree1 = new TreeMap<String,TouristPlace>();
-	//List<String> studentList2 = new ArrayList<String>();
+//Create appropriate objects for the map
+	
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String name = request.getParameter("name");
@@ -38,48 +32,55 @@ public class MapServlet extends HttpServlet {
 		String rank = request.getParameter("rank");
 		String add = request.getParameter("add");
 		
-		String sortbydestination = request.getParameter("sortbydestination");
-		String sortbyrank = request.getParameter("sortbyrank");
+		String sortRandom = request.getParameter("sortrandomly");
+		String sortInEntryOrder = request.getParameter("sortinentryorder");
+		String sortAlphabetically = request.getParameter("sortalphabetically");
 		String remove = request.getParameter("delete");
 		String reset = request.getParameter("reset");
-		System.out.println("Entering into list");
-		TouristPlace places = new TouristPlace(name,destination,rank);
-		ListOperations placeList = new ListOperations();
+		
+		// create object for Toursist class and call the appropriate method
 		
 		if(add!=null) {
-			System.out.println("add not equals to null");
-			bucketList = placeList.add(places);
-			System.out.println(bucketList);
-			request.setAttribute("bucketListadd", bucketList);
+			// call the add method and store the return value in a map variable
+			
+			request.setAttribute("bucketList", /*return variable */);
 			request.setAttribute("message", "user added successfully");
 			RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/list.jsp");
 			rd.forward(request, response);
 		}
 
 		if(remove!=null) {
-			bucketList = placeList.remove(places);
-			request.setAttribute("bucketListremove", bucketList);
+			// call the remove method and store the return value in a map variable
+			request.setAttribute("bucketList", /*return variable */);
 			RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/list.jsp");
 			rd.forward(request, response);
 		}
 
 		
-		if(sortbydestination!=null) {
-			System.out.println(bucketList);
-			request.setAttribute("bucketList", placeList.sortByDestination(bucketList));
+		if(sortRandom!=null) {
+			// call the sortRandomly method and store the return value in a map variable
+			request.setAttribute("bucketList",/*return variable */);
 			RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/list.jsp");
 			rd.forward(request, response);
 		}
 
-		if(sortbyrank!=null) {
-			System.out.println(bucketList);
-			request.setAttribute("bucketList", placeList.sortByRank(bucketList));
+		if(sortInEntryOrder!=null) {
+			// call the sortInEntryOrder and store the return value in a map variable
+			request.setAttribute("bucketList", /*return variable */);
+			RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/list.jsp");
+			rd.forward(request, response);
+		}
+		if(sortAlphabetically!=null) {
+			
+			// call the sort Alphabetically and store the return value in a map variable
+			request.setAttribute("bucketList",/*return variable */);
 			RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/list.jsp");
 			rd.forward(request, response);
 		}
 
 		if(reset!=null) {	
-			request.setAttribute("bucketList", placeList.clear(bucketList));
+			// call the reset method and store the return value in a map variable
+			request.setAttribute("bucketList", /*return variable */);
 			RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/list.jsp");
 			rd.forward(request, response);
 		}
