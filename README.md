@@ -60,8 +60,11 @@ And finally, create a pull request so your ProGrad Mentor (PM) can review your w
 1. Create a class called ListOperations inside service package with the following methods.
 
     public List<TouristPlace> add(TouristPlace places)
+ 
     public List<TouristPlace> remove(TouristPlace places)
+ 
     public Object ascending(List<TouristPlace> places)
+ 
     public Object reset(List<TouristPlace> places)
  
  2. The return type of all the methods are list.
