@@ -22,20 +22,20 @@ public class ListOperations {
 		return bucketList; 
 	}
 
-//	public Object ascending(List<TouristPlace> places) {
-//		Collections.sort(places);		
-//		return bucketList; 
-//	}
-//
-//	public Object descending(List<TouristPlace> places) {
-//		Collections.sort(places);
-//		Collections.reverse(places);
-//		return bucketList; 
-//	}
+	public Object sortByDestination(List<TouristPlace> places) {
+			
+		return bucketList; 
+	}
+
+	public Object sortByRank(List<TouristPlace> places) {
+		
+		return bucketList; 
+	}
 
 	public Object clear(List<TouristPlace> places) {
 		bucketList.clear();
 		return bucketList; 
 	}
+
 
 }

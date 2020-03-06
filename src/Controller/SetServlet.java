@@ -10,76 +10,74 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.StudentBranch;
+
+import model.TouristPlace;
+import service.ListOperations;
 
 @WebServlet(urlPatterns= {"/set"})
 
 public class SetServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	StudentBranch student = new StudentBranch();
+	
 
-	List<String> studentList1 = new ArrayList<String>();
-	HashSet<String> studentList2 = new HashSet<String>();
+
+	HashSet<TouristPlace> bucketList = new HashSet<TouristPlace>();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String branch = request.getParameter("name");
+		String name = request.getParameter("name");
+		String destination = request.getParameter("travel");
+		String rank = request.getParameter("rank");
 		String add = request.getParameter("add");
-		String remove = request.getParameter("remove");
-		String options = request.getParameter("options");
-		String view = request.getParameter("view");
-		String next = request.getParameter("next");
-
-		student.setBranch(branch);
-
+		
+		String sortbydestination = request.getParameter("sortbydestination");
+		String sortbyrank = request.getParameter("sortbyrank");
+		String remove = request.getParameter("delete");
+		String reset = request.getParameter("reset");
+		System.out.println("Entering into list");
+		TouristPlace places = new TouristPlace(name,destination,rank);
+		ListOperations placeList = new ListOperations();
+		
 		if(add!=null) {
-
-			studentList1 = student.add(branch);
-			System.out.println(studentList1);
-			request.setAttribute("studentListadd", branch);
-			RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/set.jsp");
+			System.out.println("add not equals to null");
+			bucketList = placeList.add(places);
+			System.out.println(bucketList);
+			request.setAttribute("bucketListadd", bucketList);
+			request.setAttribute("message", "user added successfully");
+			RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/list.jsp");
 			rd.forward(request, response);
 		}
 
 		if(remove!=null) {
-			studentList1 = student.remove(branch);
-			System.out.println(studentList1);
-			request.setAttribute("studentListremove", branch);
-			RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/set.jsp");
+			bucketList = placeList.remove(places);
+			request.setAttribute("bucketListremove", bucketList);
+			RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/list.jsp");
 			rd.forward(request, response);
 		}
 
-		if(view!=null) {
-			if(options.equals("HashSet")) {
-				System.out.println(studentList1);
-				request.setAttribute("studentList", student.HashSet(studentList1));
-				RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/set.jsp");
-				rd.forward(request, response);
-			}
-		}
-
-		if(view!=null) {
-			if(options.equals("LinkedHashSet")) {
-				System.out.println(studentList1);
-				request.setAttribute("studentList", student.LinkedHashSet(studentList1));
-				RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/set.jsp");
-				rd.forward(request, response);
-			}
-		}
-
-		if(view!=null) {
-			if(options.equals("TreeSet")) {
-				System.out.println(studentList1);
-				request.setAttribute("studentList", student.TreeSet(studentList1));
-				RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/set.jsp");
-				rd.forward(request, response);
-			}
-		}
-
-		if(next!=null) {
-			RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/map.jsp");
+		
+		if(sortbydestination!=null) {
+			System.out.println(bucketList);
+			request.setAttribute("bucketList", placeList.sortByDestination(bucketList));
+			RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/list.jsp");
 			rd.forward(request, response);
 		}
+
+		if(sortbyrank!=null) {
+			System.out.println(bucketList);
+			request.setAttribute("bucketList", placeList.sortByRank(bucketList));
+			RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/list.jsp");
+			rd.forward(request, response);
+		}
+
+		if(reset!=null) {	
+			request.setAttribute("bucketList", placeList.clear(bucketList));
+			RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/list.jsp");
+			rd.forward(request, response);
+		}
+
+	
+	
 	}
 
 

@@ -14,7 +14,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.StudentBasicDetail;
+
+import model.TouristPlace;
+import service.ListOperations;
 
 
 @WebServlet(urlPatterns= {"/map"})
@@ -22,85 +24,67 @@ public class MapServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
-	StudentBasicDetail studentbasics = new StudentBasicDetail();
-
-	Map<String,String> hash = new HashMap<String,String>();
-	Map<String,String> linkedhash = new LinkedHashMap<String,String>();
-	Map<String,String> tree = new TreeMap<String,String>();
-	Map<String,String> hash1 = new HashMap<String,String>();
-	Map<String,String> linkedhash1 = new LinkedHashMap<String,String>();
-	Map<String,String> tree1 = new TreeMap<String,String>();
+	Map<String,TouristPlace> hash = new HashMap<String,TouristPlace>();
+	Map<String,TouristPlace> linkedhash = new LinkedHashMap<String,TouristPlace>();
+	Map<String,TouristPlace> tree = new TreeMap<String,TouristPlace>();
+	Map<String,TouristPlace> hash1 = new HashMap<String,TouristPlace>();
+	Map<String,TouristPlace> linkedhash1 = new LinkedHashMap<String,TouristPlace>();
+	Map<String,TouristPlace> tree1 = new TreeMap<String,TouristPlace>();
 	//List<String> studentList2 = new ArrayList<String>();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		PrintWriter out = response.getWriter();
-		System.out.println("Welcome");
-		String id = request.getParameter("id");
 		String name = request.getParameter("name");
+		String destination = request.getParameter("travel");
+		String rank = request.getParameter("rank");
 		String add = request.getParameter("add");
-		String clear = request.getParameter("clear");
-		String options = request.getParameter("options");
-		String view = request.getParameter("view");
-		String next = request.getParameter("end");
-
-		studentbasics.setId(id);
-		studentbasics.setName(name);
-
+		
+		String sortbydestination = request.getParameter("sortbydestination");
+		String sortbyrank = request.getParameter("sortbyrank");
+		String remove = request.getParameter("delete");
+		String reset = request.getParameter("reset");
+		System.out.println("Entering into list");
+		TouristPlace places = new TouristPlace(name,destination,rank);
+		ListOperations placeList = new ListOperations();
+		
 		if(add!=null) {
-
-			hash1 = studentbasics.add(id,name);
-			linkedhash1 = studentbasics.add(id,name);
-			tree1 = studentbasics.add(id,name);
-			System.out.println(hash);
-			request.setAttribute("studentListadd", name);
-			RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/map.jsp");
+			System.out.println("add not equals to null");
+			bucketList = placeList.add(places);
+			System.out.println(bucketList);
+			request.setAttribute("bucketListadd", bucketList);
+			request.setAttribute("message", "user added successfully");
+			RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/list.jsp");
 			rd.forward(request, response);
 		}
 
-
-		if(clear!=null) {
-			hash = studentbasics.clear(hash1);
-			linkedhash = studentbasics.clear(linkedhash1);
-			tree = studentbasics.clear(tree1);
-			System.out.println(hash);
-			request.setAttribute("studentListclear", hash);
-			RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/map.jsp");
+		if(remove!=null) {
+			bucketList = placeList.remove(places);
+			request.setAttribute("bucketListremove", bucketList);
+			RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/list.jsp");
 			rd.forward(request, response);
 		}
 
-		if(view!=null) {
-			if(options.equals("HashMap")) {
-				System.out.println(hash);
-				request.setAttribute("studentList", studentbasics.HashMap(hash));
-				RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/map.jsp");
-				rd.forward(request, response);
-			}
+		
+		if(sortbydestination!=null) {
+			System.out.println(bucketList);
+			request.setAttribute("bucketList", placeList.sortByDestination(bucketList));
+			RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/list.jsp");
+			rd.forward(request, response);
 		}
 
-		if(view!=null) {
-			if(options.equals("LinkedHashMap")) {
-				System.out.println(linkedhash);
-				request.setAttribute("studentList", studentbasics.LinkedHashMap(linkedhash));
-				RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/map.jsp");
-				rd.forward(request, response);
-			}
+		if(sortbyrank!=null) {
+			System.out.println(bucketList);
+			request.setAttribute("bucketList", placeList.sortByRank(bucketList));
+			RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/list.jsp");
+			rd.forward(request, response);
 		}
 
-		if(view!=null) {
-			if(options.equals("TreeMap")) {
-				System.out.println(tree);
-				request.setAttribute("studentList", studentbasics.TreeMap(tree));
-				RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/map.jsp");
-				rd.forward(request, response);
-			}
+		if(reset!=null) {	
+			request.setAttribute("bucketList", placeList.clear(bucketList));
+			RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/list.jsp");
+			rd.forward(request, response);
 		}
 
-		if(next!=null) {
-			response.setContentType("text/html");  
-			out.println("<script type=\"text/javascript\">");  
-			out.println("alert('Well Done!');");  
-			out.println("</script>");
-		}
+	
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

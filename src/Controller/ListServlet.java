@@ -26,14 +26,12 @@ public class ListServlet extends HttpServlet {
 		String name = request.getParameter("name");
 		String destination = request.getParameter("travel");
 		String rank = request.getParameter("rank");
-		
 		String add = request.getParameter("add");
-/*		String remove = request.getParameter("remove");
-		String view = request.getParameter("view");
-		String ascending = request.getParameter("ascending");
-		String descending = request.getParameter("descending");
-		String clear = request.getParameter("clear");
-		String next = request.getParameter("next");*/
+		
+		String sortbydestination = request.getParameter("sortbydestination");
+		String sortbyrank = request.getParameter("sortbyrank");
+		String remove = request.getParameter("delete");
+		String reset = request.getParameter("reset");
 		System.out.println("Entering into list");
 		TouristPlace places = new TouristPlace(name,destination,rank);
 		ListOperations placeList = new ListOperations();
@@ -47,45 +45,36 @@ public class ListServlet extends HttpServlet {
 			RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/list.jsp");
 			rd.forward(request, response);
 		}
-//
-//		if(remove!=null) {
-//			studentList1 = student.remove(studentName);
-//			request.setAttribute("studentListremove", studentName);
-//			RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/list.jsp");
-//			rd.forward(request, response);
-//		}
-//
-//		if(view!=null) {
-//			System.out.println(studentList1);
-//			request.setAttribute("studentList", studentList1);
-//			RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/list.jsp");
-//			rd.forward(request, response);
-//		}
-//
-//		if(ascending!=null) {
-//			System.out.println(studentList1);
-//			request.setAttribute("studentList", student.ascending(studentList1));
-//			RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/list.jsp");
-//			rd.forward(request, response);
-//		}
-//
-//		if(descending!=null) {
-//			System.out.println(studentList1);
-//			request.setAttribute("studentList", student.descending(studentList1));
-//			RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/list.jsp");
-//			rd.forward(request, response);
-//		}
-//
-//		if(clear!=null) {	
-//			request.setAttribute("studentListclear", student.clear(studentList1));
-//			RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/list.jsp");
-//			rd.forward(request, response);
-//		}
-//
-//		if(next!=null) {
-//			RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/listadvance.jsp");
-//			rd.forward(request, response);
-//		}
+
+		if(remove!=null) {
+			bucketList = placeList.remove(places);
+			request.setAttribute("bucketListremove", bucketList);
+			RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/list.jsp");
+			rd.forward(request, response);
+		}
+
+		
+		if(sortbydestination!=null) {
+			System.out.println(bucketList);
+			request.setAttribute("bucketList", placeList.sortByDestination(bucketList));
+			RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/list.jsp");
+			rd.forward(request, response);
+		}
+
+		if(sortbyrank!=null) {
+			System.out.println(bucketList);
+			request.setAttribute("bucketList", placeList.sortByRank(bucketList));
+			RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/list.jsp");
+			rd.forward(request, response);
+		}
+
+		if(reset!=null) {	
+			request.setAttribute("bucketList", placeList.clear(bucketList));
+			RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/list.jsp");
+			rd.forward(request, response);
+		}
+
+	
 	}
 
 

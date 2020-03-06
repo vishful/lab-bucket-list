@@ -10,7 +10,7 @@
 <meta charset="ISO-8859-1">
 <title>Lists</title>
 <meta charset="utf-8" />
-<link rel="stylesheet" type="text/css" href="./assets/list.css" />
+<link rel="stylesheet" type="text/css" href="./assets/collection.css" />
 </head>
 <body>
 	
@@ -23,17 +23,13 @@
 				<input type="text" class="form-text" id="destination" placeholder="Place" name="travel">
 				<label id="rank-id" for="rank">Rank</label> 
 				<input type="text" class="form-text" id="rank" placeholder="Rank" name="rank">
-			  <button class="button" type="submit" value="ADDITEM" name="add">ADD TO BUCKET LIST</button> 
-			<!-- <input	type="submit" value="REMOVE" name="remove">
-			 <input type="submit" value="VEIW NAMES" name="view">
-			 <input type="submit" value="ASCENDING" name="ascending">
-			 <input type="submit" value="DESCENDING" name="descending"> 
-			 <input type="submit" value="CLEAR" name="clear">
-			 <input	type="submit" value="GO NEXT" name="next"><br> -->
-			
-	
-
-
+			   	<button class="button" type="submit" value="ADDITEM" name="add">ADD TO BUCKET LIST</button> 
+				<label id="sort-id" for="sort">Sort by Destination </label>
+				<input id="sort" type="checkbox" value="sort by destination" name="sortbydestination">
+				<label id="sort-rank-id" for="sortbyrank">Sort by Rank </label>
+				<input id="sortbyrank" type="checkbox" value="Sort by rank" name="sortbyrank">
+				<button class="button-reset" type="submit" value="reset" name="reset">RESET MY BUCKET LIST</button>
+				<button class="button-delete" type="submit" value="delete" name="remove">DELETE MY LAST ENTRY</button> 
 			</div>
 		</div>
 	</form>
@@ -44,6 +40,11 @@
 	
 			<table class="table-bordered">
 			<tbody>
+					<tr>
+						<th>SPOT NAME</th>
+						<th>DESTINATION</th>
+						<th>RANK</th>
+					</tr>
 					
 					<c:forEach var="bucket" items="${bucketListadd}">
 
