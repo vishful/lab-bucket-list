@@ -62,20 +62,23 @@ And finally, create a pull request so your ProGrad Mentor (PM) can review your w
    - ***public List<TouristPlace> remove(TouristPlace places)***
    - ***public Object ascending(List<TouristPlace> places)***
    - ***public Object reset(List<TouristPlace> places)***
- 2. ***The return type of all the methods are list.***
+2. *** Use lamda operations to sort.***
+3. ***The return type of all the methods are list.***
 
 ## Progression - 3
 1. ***Create a class called MapOperations inside service package with the following methods.***
    - ***public Map<TouristPlace> sortRandomly(TouristPlace places)***
    - ***public Map<TouristPlace> sortInEntryOrder(TouristPlace places)***
    - ***public Map<TouristPlace> sortAlphabetically(TouristPlace places)***
-2. ***The return type of all the methods are map.***
+2. *** Use lamda operations to sort.***
+3. ***The return type of all the methods are map.***
  
  ## Progression - 4
 1. ***Create a class called SetOperations inside service package with the following methods.***
    - ***public Set<TouristPlace> insert(TouristPlace places)***
    - ***public Set<TouristPlace> delete(TouristPlace places)***
-2. ***The return type of all the methods are set.***
+2. *** Use lamda operations to sort.***
+3. ***The return type of all the methods are set.***
 
 
 Happy Coding ProGrad ❤️
