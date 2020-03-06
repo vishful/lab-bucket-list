@@ -51,7 +51,31 @@ And finally, create a pull request so your ProGrad Mentor (PM) can review your w
 1 ***Set of list,set and map operations on the list.***
 
 
-## Progression - 1 
+## Progression - 1
+1. Create a class called TouristPlace inside model package.
+2. Include appropriate getters and setters
+3. Include 3 argument constructor. The order in which the arguments are passed is name, destination and rank of type String.
+
+## Progression - 2
+1. Create a class called ListOperations inside service package with the following methods.
+    public List<TouristPlace> add(TouristPlace places)
+    public List<TouristPlace> remove(TouristPlace places)
+    public Object ascending(List<TouristPlace> places)
+    public Object reset(List<TouristPlace> places)
+ 2. The return type of all the methods are list.
+
+## Progression - 3
+1. Create a class called MapOperations inside service package with the following methods.
+    public Map<TouristPlace> sortRandomly(TouristPlace places)
+    public Map<TouristPlace> sortInEntryOrder(TouristPlace places)
+    public Map<TouristPlace> sortAlphabetically(TouristPlace places)
+2. The return type of all the methods are map.
+ 
+ ## Progression - 4
+1. Create a class called SetOperations inside service package with the following methods.
+    public Set<TouristPlace> insert(TouristPlace places)
+    public Set<TouristPlace> delete(TouristPlace places)
+2. The return type of all the methods are set.
 
 
 Happy Coding ProGrad ❤️
