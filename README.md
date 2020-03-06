@@ -32,13 +32,16 @@ And finally, create a pull request so your ProGrad Mentor (PM) can review your w
 4. ***You will have 3 packages src/controller,src/model and src/utility.***
 5. ***Once the progressions are completed, follow the instructions to run the application and test your code.***
 
+
 ## Testing
 1. ***Right click on your project and then run as - Junit.***
+ 
  
 ## Run the Project
 1. ***Right click on the project.***
 2. ***Go to Run as -> Run on server.***
 3. ***You can check the output in eclipse browser or in your browser.***
+
 
 ## Input Format
 1. ***There are three stages***
@@ -56,6 +59,7 @@ And finally, create a pull request so your ProGrad Mentor (PM) can review your w
 2. ***Include appropriate getters and setters***
 3. ***Include 3 argument constructor. The order in which the arguments are passed is name, destination and rank of type String.***
 
+
 ## Progression - 2
 1. ***Create a class called ListOperations inside service package with the following methods.***
    - ***public List<TouristPlace> add(TouristPlace places)***
@@ -65,6 +69,7 @@ And finally, create a pull request so your ProGrad Mentor (PM) can review your w
 2. ***Use lamda operations to sort.***
 3. ***The return type of all the methods are list.***
 
+
 ## Progression - 3
 1. ***Create a class called MapOperations inside service package with the following methods.***
    - ***public Map<TouristPlace> sortRandomly(TouristPlace places)***
@@ -72,6 +77,7 @@ And finally, create a pull request so your ProGrad Mentor (PM) can review your w
    - ***public Map<TouristPlace> sortAlphabetically(TouristPlace places)***
 2. ***Use lamda operations to sort.***
 3. ***The return type of all the methods are map.***
+ 
  
  ## Progression - 4
 1. ***Create a class called SetOperations inside service package with the following methods.***
