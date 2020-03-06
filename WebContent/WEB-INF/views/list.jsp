@@ -46,7 +46,7 @@
 						<th>RANK</th>
 					</tr>
 					
-					<c:forEach var="bucket" items="${bucketListadd}">
+					<c:forEach var="bucket" items="${bucketList}">
 
 						<tr>
 						
