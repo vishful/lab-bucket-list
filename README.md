@@ -73,7 +73,7 @@ And finally, create a pull request so your ProGrad Mentor (PM) can review your w
 
 ## Progression - 3
 1. ***Create a class called MapOperations inside service package with the following methods.***
-   - ***public List<TouristPlace> add(TouristPlace places)***
+   - ***public Map<TouristPlace> add(TouristPlace places)***
    - ***public Map<TouristPlace> sortRandomly(TouristPlace places)***
    - ***public Map<TouristPlace> sortInEntryOrder(HashMap<TouristPlace> places)***
    - ***public Map<TouristPlace> sortAlphabetically(HashMap<TouristPlace> places)***
