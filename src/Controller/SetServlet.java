@@ -18,9 +18,7 @@ import service.ListOperations;
 
 public class SetServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-	// Create a set 
-
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String name = request.getParameter("name");
 		String destination = request.getParameter("travel");
@@ -31,10 +29,6 @@ public class SetServlet extends HttpServlet {
 		String sortbyrank = request.getParameter("sortbyrank");
 		String remove = request.getParameter("delete");
 		String reset = request.getParameter("reset");
-		
-		// Create an object for TouristPlace
-		// Pass name, destination and rank to the constructor
-		// Create an object for SetOperations and call the appropriate methods 
 		
 		if(add!=null) {
 			// call the add method and store the return value in a set variable
