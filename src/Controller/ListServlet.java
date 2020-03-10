@@ -18,12 +18,7 @@ import service.ListOperations;
 @WebServlet(urlPatterns= {"/list"})
 public class ListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
-	// Create a List object called Bucket List.
-	// Your list should be List<TouristPlace>
-	
-	
-
+		
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String name = request.getParameter("name");
 		String destination = request.getParameter("travel");
@@ -36,11 +31,7 @@ public class ListServlet extends HttpServlet {
 		String reset = request.getParameter("reset");
 		
 		System.out.println("Entering into list");
-		// Create an object for the TouristPlace and pass name, destination and rank as arguments
-		
-		// Create an object for the ListOperations class
-		
-		
+	
 		if(add!=null) {
 			// Call the add method in list operations and store the return list in list variable
 			System.out.println("calling add equals method");
