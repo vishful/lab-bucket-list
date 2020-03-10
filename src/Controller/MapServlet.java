@@ -23,8 +23,6 @@ import service.ListOperations;
 public class MapServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-//Create appropriate objects for the map
-	
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String name = request.getParameter("name");
@@ -37,9 +35,7 @@ public class MapServlet extends HttpServlet {
 		String sortAlphabetically = request.getParameter("sortalphabetically");
 		String remove = request.getParameter("delete");
 		String reset = request.getParameter("reset");
-		
-		// create object for Toursist class and call the appropriate method
-		
+			
 		if(add!=null) {
 			// call the add method and store the return value in a map variable
 			
