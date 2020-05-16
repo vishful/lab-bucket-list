@@ -35,7 +35,7 @@ public class SetServlet extends HttpServlet {
 			
 			request.setAttribute("bucketListadd", /*pass the return value */);
 			request.setAttribute("message", "user added successfully");
-			RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/list.jsp");
+			RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/set.jsp");
 			rd.forward(request, response);
 		}
 
@@ -44,7 +44,7 @@ public class SetServlet extends HttpServlet {
 			
 			
 			request.setAttribute("bucketListremove", /*pass the return value */);
-			RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/list.jsp");
+			RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/set.jsp");
 			rd.forward(request, response);
 		}
 
@@ -54,7 +54,7 @@ public class SetServlet extends HttpServlet {
 			
 			
 			request.setAttribute("bucketList", /*pass the return value */);
-			RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/list.jsp");
+			RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/set.jsp");
 			rd.forward(request, response);
 		}
 
@@ -62,7 +62,7 @@ public class SetServlet extends HttpServlet {
 			// call the sortByRank method and store the return value in a set variable
 			
 			request.setAttribute("bucketList", /*pass the return value */);
-			RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/list.jsp");
+			RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/set.jsp");
 			rd.forward(request, response);
 		}
 
@@ -70,7 +70,7 @@ public class SetServlet extends HttpServlet {
 			// call the reset method and store the return value in a set variable
 			
 			request.setAttribute("bucketList", /*pass the return value */);
-			RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/list.jsp");
+			RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/set.jsp");
 			rd.forward(request, response);
 		}
 
