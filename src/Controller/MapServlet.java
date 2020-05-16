@@ -41,14 +41,14 @@ public class MapServlet extends HttpServlet {
 			
 			request.setAttribute("bucketList", /*return variable */);
 			request.setAttribute("message", "user added successfully");
-			RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/list.jsp");
+			RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/map.jsp");
 			rd.forward(request, response);
 		}
 
 		if(remove!=null) {
 			// call the remove method and store the return value in a map variable
 			request.setAttribute("bucketList", /*return variable */);
-			RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/list.jsp");
+			RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/map.jsp");
 			rd.forward(request, response);
 		}
 
@@ -56,28 +56,28 @@ public class MapServlet extends HttpServlet {
 		if(sortRandom!=null) {
 			// call the sortRandomly method and store the return value in a map variable
 			request.setAttribute("bucketList",/*return variable */);
-			RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/list.jsp");
+			RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/map.jsp");
 			rd.forward(request, response);
 		}
 
 		if(sortInEntryOrder!=null) {
 			// call the sortInEntryOrder and store the return value in a map variable
 			request.setAttribute("bucketList", /*return variable */);
-			RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/list.jsp");
+			RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/map.jsp");
 			rd.forward(request, response);
 		}
 		if(sortAlphabetically!=null) {
 			
 			// call the sort Alphabetically and store the return value in a map variable
 			request.setAttribute("bucketList",/*return variable */);
-			RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/list.jsp");
+			RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/map.jsp");
 			rd.forward(request, response);
 		}
 
 		if(reset!=null) {	
 			// call the reset method and store the return value in a map variable
 			request.setAttribute("bucketList", /*return variable */);
-			RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/list.jsp");
+			RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/map.jsp");
 			rd.forward(request, response);
 		}
 
